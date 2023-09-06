@@ -37,9 +37,9 @@ public class StudentService {
 			return structure;
 		} else {
 			if (dao.fetchStudent(student.getMobile()) == null)
-				throw new ShouldNotRepeatExecption("Email Should Not Repeat");
+				throw new ShouldNotRepeatExecption(student.getEmail() + " Should Not Repeat");
 			else
-				throw new ShouldNotRepeatExecption("Mobile Should Not Repeat");
+				throw new ShouldNotRepeatExecption(student.getMobile() + " Should Not Repeat");
 		}
 	}
 
