@@ -20,4 +20,15 @@ public class MainExceptionHandler {
 		
 		return new ResponseEntity<ResponseStructure<String>>(structure, HttpStatus.BAD_REQUEST);
 	}
+	
+	@ExceptionHandler(DataNotFoundExecption.class)
+	public ResponseEntity<ResponseStructure<String>> handle(DataNotFoundExecption execption)
+	{
+		ResponseStructure<String> structure=new ResponseStructure<>();
+		structure.setMessage("Data Not Found");
+		structure.setData(execption.getMessage());
+		structure.setStatus(HttpStatus.NOT_FOUND.value());
+		
+		return new ResponseEntity<ResponseStructure<String>>(structure, HttpStatus.NOT_FOUND);
+	}
 }

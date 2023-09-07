@@ -1,5 +1,7 @@
 package org.jsp.student.dao;
 
+import java.util.List;
+
 import org.jsp.student.dto.Student;
 import org.jsp.student.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,5 +24,18 @@ public class StudentDao {
 	public Student fetchStudent(String email) {
 		return repository.findByEmail(email);
 	}
+
+	public List<Student> saveStudents(List<Student> students) {
+		return repository.saveAll(students);
+	}
+
+	public List<Student> getStudents() {
+		return repository.findAll();
+	}
+
+	public List<Student> getStudentByName(String name) {
+		return repository.findByName(name);
+	}
+
 
 }
