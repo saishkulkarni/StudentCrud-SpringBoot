@@ -13,4 +13,8 @@ public interface StudentRepository extends JpaRepository<Student, Integer> {
 
 	List<Student> findByName(String name);
 
+	List<Student> findByResult(String result);
+
+	List<Student> findByMathsGreaterThanEqualAndEnglishGreaterThanEqual(int marks1, int marks2);
+
 }
